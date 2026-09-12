@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | BLOGVERSE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="auth-page">
+
+    <!-- Animated Background -->
+    <div class="auth-background">
+
+        <span class="floating-shape shape-one"></span>
+        <span class="floating-shape shape-two"></span>
+        <span class="floating-shape shape-three"></span>
+        <span class="floating-shape shape-four"></span>
+        <span class="floating-shape shape-five"></span>
+
+        <div class="auth-glow glow-one"></div>
+        <div class="auth-glow glow-two"></div>
+
+    </div>
+
+
+    <!-- Main Container -->
+    <main class="auth-wrapper">
+
+        <!-- Left Introduction Section -->
+        <section class="auth-intro">
+
+            <a href="index.html" class="auth-logo">
+
+                <span class="logo-icon">B</span>
+
+                <span>BLOGVERSE</span>
+
+            </a>
+
+
+            <div class="intro-content">
+
+                <span class="intro-label">
+                    START YOUR JOURNEY
+                </span>
+
+                <h1>
+                    Your voice
+                    <span>deserves to be heard.</span>
+                </h1>
+
+                <p>
+                    Create your BLOGVERSE account and transform
+                    your ideas into stories that people can discover,
+                    read and discuss.
+                </p>
+
+            </div>
+
+
+            <!-- Quote -->
+            <div class="intro-decoration">
+
+                <div class="quote-card">
+
+                    <span class="quote-mark">“</span>
+
+                    <p>
+                        Write something worth remembering.
+                    </p>
+
+                    <small>
+                        — BLOGVERSE
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Register Card -->
+        <section class="auth-card">
+
+            <div class="card-header">
+
+                <div class="mobile-logo">
+
+                    <span class="logo-icon">
+                        B
+                    </span>
+
+                </div>
+
+                <span class="card-label">
+                    CREATE ACCOUNT
+                </span>
+
+                <h2>
+                    Sign Up
+                </h2>
+
+                <p>
+                    Create your account and start sharing your ideas.
+                </p>
+
+            </div>
+
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+
+                <!-- Full Name -->
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+
+                    <!-- Password Strength -->
+                    <div class="password-strength">
+
+                        <div class="strength-bar">
+                            <span id="strengthBar"></span>
+                        </div>
+
+                        <small id="strengthText">
+                            Password strength
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔐
+                        </span>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleConfirmPassword"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Terms -->
+                <div class="remember-row">
+
+                    <label class="remember-label">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <span class="custom-checkbox"></span>
+
+                        <span>
+                            I agree to the BLOGVERSE terms.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- Message -->
+                <div
+                    id="message"
+                    class="auth-message"
+                    role="alert"
+                ></div>
+
+
+                <!-- Register Button -->
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="registerBtn"
+                >
+
+                    <span id="buttonText">
+                        Create Account
+                    </span>
+
+                    <span
+                        id="buttonLoader"
+                        class="button-loader"
+                        style="display: none;"
+                    ></span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+
+            <!-- Login Link -->
+            <div class="auth-switch">
+
+                <span>
+                    Already have an account?
+                </span>
+
+                <a href="login.html">
+                    Sign In
+                </a>
+
+            </div>
+
+
+            <!-- Back Home -->
+            <a href="index.html" class="back-home">
+                ← Back to BLOGVERSE
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Register JavaScript -->
+    <script src="js/register.js"></script>
+
+</body>
+</html>

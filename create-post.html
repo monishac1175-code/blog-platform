@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Post | BLOGVERSE</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Dashboard CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+
+    <!-- Create Post Styles -->
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .create-page {
+            min-height: calc(100vh - 80px);
+            padding: 60px 20px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .create-container {
+            width: min(900px, 100%);
+            margin: auto;
+        }
+
+
+        .create-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+
+        .create-header .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+
+        .create-header h1 {
+            margin: 0 0 12px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 6vw, 60px);
+            line-height: 1.1;
+        }
+
+
+        .create-header p {
+            max-width: 620px;
+            margin: auto;
+            line-height: 1.8;
+            opacity: 0.7;
+        }
+
+
+        .post-editor {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.14);
+            animation: editorAppear 0.7s ease;
+        }
+
+
+        @keyframes editorAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        .editor-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+
+        .editor-label {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.55;
+        }
+
+
+        .editor-status {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.55;
+        }
+
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 14px;
+            background: white;
+            color: #171717;
+            font-family: "Inter", sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+
+        .form-group input {
+            height: 58px;
+            padding: 0 18px;
+        }
+
+
+        .form-group textarea {
+            min-height: 360px;
+            padding: 18px;
+            resize: vertical;
+            line-height: 1.8;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #171717;
+            box-shadow:
+                0 0 0 4px rgba(23, 23, 23, 0.06);
+        }
+
+
+        .input-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 7px;
+        }
+
+
+        .character-count {
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+
+        .editor-message {
+            display: none;
+            padding: 14px 16px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        .editor-message.success {
+            display: block;
+            background: #e9f8ef;
+            color: #176b38;
+        }
+
+
+        .editor-message.error {
+            display: block;
+            background: #fff0f0;
+            color: #b42323;
+        }
+
+
+        .editor-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 14px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+
+        .cancel-btn,
+        .publish-btn {
+            min-height: 52px;
+            padding: 0 25px;
+            border-radius: 12px;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+
+        .cancel-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: transparent;
+            color: #171717;
+        }
+
+
+        .cancel-btn:hover {
+            background: #f4f4f4;
+            transform: translateY(-2px);
+        }
+
+
+        .publish-btn {
+            border: none;
+            background: #171717;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+
+        .publish-btn:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+
+        .publish-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        .publish-loader {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .create-page {
+                padding: 40px 15px 60px;
+            }
+
+
+            .post-editor {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+
+
+            .editor-top {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+
+            .form-group textarea {
+                min-height: 280px;
+            }
+
+
+            .editor-actions {
+                flex-direction: column-reverse;
+            }
+
+
+            .cancel-btn,
+            .publish-btn {
+                width: 100%;
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .post-editor {
+                animation: none;
+            }
+
+
+            .publish-loader {
+                animation: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         ANIMATED BACKGROUND
+    ====================================== -->
+
+    <div class="background-animation">
+
+        <span class="floating-circle circle-one"></span>
+
+        <span class="floating-circle circle-two"></span>
+
+        <span class="floating-circle circle-three"></span>
+
+        <span class="floating-circle circle-four"></span>
+
+        <span class="floating-circle circle-five"></span>
+
+    </div>
+
+
+
+    <!-- =====================================
+         NAVIGATION
+    ====================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+
+            <!-- Logo -->
+
+            <a
+                href="dashboard.html"
+                class="logo"
+            >
+
+                <span class="logo-icon">
+                    B
+                </span>
+
+                <span class="logo-text">
+                    BLOGVERSE
+                </span>
+
+            </a>
+
+
+
+            <!-- Navigation -->
+
+            <nav class="nav-links">
+
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a
+                    href="create-post.html"
+                    class="active"
+                >
+                    Create Post
+                </a>
+
+
+            </nav>
+
+
+
+            <!-- User -->
+
+            <div class="nav-user">
+
+
+                <div class="user-info">
+
+
+                    <div
+                        class="user-avatar"
+                        id="userAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div>
+
+                        <span class="welcome-small">
+                            Writing as
+                        </span>
+
+
+                        <strong id="navUserName">
+                            User
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Logout -->
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+                    Logout
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         CREATE POST
+    ====================================== -->
+
+    <main class="create-page">
+
+
+        <div class="create-container">
+
+
+            <!-- Header -->
+
+            <div class="create-header">
+
+
+                <span class="eyebrow">
+                    BLOGVERSE EDITOR
+                </span>
+
+
+                <h1 id="pageTitle">
+                    Create a New Story
+                </h1>
+
+
+                <p>
+
+                    Put your thoughts into words and share
+                    something meaningful with the BLOGVERSE community.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 POST FORM
+            ================================== -->
+
+            <form
+                id="postForm"
+                class="post-editor"
+            >
+
+
+                <!-- Editor Top -->
+
+                <div class="editor-top">
+
+
+                    <span class="editor-label">
+                        New Post
+                    </span>
+
+
+                    <span
+                        class="editor-status"
+                        id="editorStatus"
+                    >
+                        Ready to write
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- TITLE -->
+
+                <div class="form-group">
+
+
+                    <label for="title">
+                        Post Title
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Give your story a powerful title..."
+                        maxlength="150"
+                        required
+                    >
+
+
+                    <div class="input-footer">
+
+
+                        <span
+                            class="character-count"
+                            id="titleCount"
+                        >
+                            0 / 150
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- CONTENT -->
+
+                <div class="form-group">
+
+
+                    <label for="content">
+                        Your Story
+                    </label>
+
+
+                    <textarea
+                        id="content"
+                        name="content"
+                        placeholder="Start writing your story here..."
+                        required
+                    ></textarea>
+
+
+                    <div class="input-footer">
+
+
+                        <span
+                            class="character-count"
+                            id="contentCount"
+                        >
+                            0 characters
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="message"
+                    class="editor-message"
+                    role="alert"
+                ></div>
+
+
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="editor-actions">
+
+
+                    <a
+                        href="dashboard.html"
+                        class="cancel-btn"
+                        id="cancelBtn"
+                    >
+                        Cancel
+                    </a>
+
+
+                    <button
+                        type="submit"
+                        class="publish-btn"
+                        id="publishBtn"
+                    >
+
+
+                        <span id="publishText">
+                            Publish Story
+                        </span>
+
+
+                        <span
+                            id="publishLoader"
+                            class="publish-loader"
+                            style="display: none;"
+                        ></span>
+
+
+                        <span>
+                            →
+                        </span>
+
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         CREATE POST JAVASCRIPT
+    ====================================== -->
+
+    <script src="js/create-post.js"></script>
+
+
+</body>
+
+</html>

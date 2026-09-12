@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | BLOGVERSE</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         ANIMATED BACKGROUND
+    ====================================== -->
+
+    <div class="background-animation">
+
+        <span class="floating-circle circle-one"></span>
+
+        <span class="floating-circle circle-two"></span>
+
+        <span class="floating-circle circle-three"></span>
+
+        <span class="floating-circle circle-four"></span>
+
+        <span class="floating-circle circle-five"></span>
+
+    </div>
+
+
+
+    <!-- =====================================
+         NAVIGATION
+    ====================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+
+            <!-- Logo -->
+
+            <a
+                href="dashboard.html"
+                class="logo"
+            >
+
+                <span class="logo-icon">
+                    B
+                </span>
+
+                <span class="logo-text">
+                    BLOGVERSE
+                </span>
+
+            </a>
+
+
+
+            <!-- Navigation Links -->
+
+            <nav class="nav-links">
+
+                <a
+                    href="dashboard.html"
+                    class="active"
+                >
+                    Dashboard
+                </a>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="create-post.html">
+                    Create Post
+                </a>
+
+            </nav>
+
+
+
+            <!-- User Area -->
+
+            <div class="nav-user">
+
+
+                <div class="user-info">
+
+
+                    <div
+                        class="user-avatar"
+                        id="userAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div class="user-details">
+
+                        <span class="welcome-small">
+                            Welcome
+                        </span>
+
+
+                        <strong id="navUserName">
+                            User
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Logout -->
+
+                <button
+                    type="button"
+                    class="logout-btn"
+                    id="logoutBtn"
+                >
+                    Logout
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         DASHBOARD
+    ====================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================
+             WELCOME SECTION
+        ================================== -->
+
+        <section class="dashboard-header">
+
+
+            <div class="heading-content">
+
+
+                <span class="eyebrow">
+                    YOUR BLOGVERSE
+                </span>
+
+
+                <h1>
+
+                    Welcome back,
+
+                    <span id="welcomeUser">
+                        Writer
+                    </span>!
+
+                </h1>
+
+
+                <p>
+
+                    This is your personal writing space.
+                    Create stories, manage your posts and
+                    connect with your readers.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- Create Post -->
+
+            <a
+                href="create-post.html"
+                class="create-btn"
+            >
+
+                <span>
+                    ＋
+                </span>
+
+                Create New Post
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             STATISTICS
+        ================================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- Total Posts -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📝
+                </div>
+
+
+                <div class="stat-details">
+
+                    <span>
+                        Total Posts
+                    </span>
+
+
+                    <strong id="totalPosts">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Total Comments -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    💬
+                </div>
+
+
+                <div class="stat-details">
+
+                    <span>
+                        Total Comments
+                    </span>
+
+
+                    <strong id="totalComments">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Published -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✨
+                </div>
+
+
+                <div class="stat-details">
+
+                    <span>
+                        Published
+                    </span>
+
+
+                    <strong id="publishedPosts">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Account -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👤
+                </div>
+
+
+                <div class="stat-details">
+
+                    <span>
+                        Account
+                    </span>
+
+
+                    <strong>
+                        Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+             POSTS SECTION
+        ================================== -->
+
+        <section class="posts-section">
+
+
+            <!-- Section Heading -->
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        YOUR CONTENT
+                    </span>
+
+
+                    <h2>
+                        Your Posts
+                    </h2>
+
+
+                    <p>
+                        Manage the stories you have created.
+                    </p>
+
+                </div>
+
+
+
+                <!-- New Post -->
+
+                <a
+                    href="create-post.html"
+                    class="secondary-btn"
+                >
+                    + New Post
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 LOADING
+            ================================== -->
+
+            <div
+                id="loading"
+                class="state-message"
+            >
+
+                <div class="loader"></div>
+
+
+                <p>
+                    Loading your posts...
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ERROR
+            ================================== -->
+
+            <div
+                id="errorMessage"
+                class="state-message error-state"
+                style="display: none;"
+            >
+
+
+                <div class="state-icon">
+                    ⚠️
+                </div>
+
+
+                <h3>
+                    Unable to load posts
+                </h3>
+
+
+                <p id="errorText">
+                    Something went wrong while loading your posts.
+                </p>
+
+
+                <button
+                    type="button"
+                    id="retryBtn"
+                    class="secondary-btn"
+                >
+                    Try Again
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 EMPTY STATE
+            ================================== -->
+
+            <div
+                id="emptyState"
+                class="empty-state"
+                style="display: none;"
+            >
+
+
+                <div class="empty-icon">
+                    ✍️
+                </div>
+
+
+                <h3>
+                    Your story starts here
+                </h3>
+
+
+                <p>
+
+                    You haven't created any posts yet.
+                    Write your first story and share your ideas
+                    with the BLOGVERSE community.
+
+                </p>
+
+
+                <a
+                    href="create-post.html"
+                    class="create-btn"
+                >
+                    Create Your First Post
+                </a>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 POSTS CONTAINER
+            ================================== -->
+
+            <div
+                id="postsContainer"
+                class="posts-grid"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="footer">
+
+
+        <div class="footer-container">
+
+
+            <!-- Footer Brand -->
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="dashboard.html"
+                    class="logo"
+                >
+
+                    <span class="logo-icon">
+                        B
+                    </span>
+
+
+                    <span class="logo-text">
+                        BLOGVERSE
+                    </span>
+
+                </a>
+
+
+                <p>
+                    Write. Share. Connect.
+                </p>
+
+
+            </div>
+
+
+
+            <!-- Footer Links -->
+
+            <div class="footer-links">
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+
+                <a href="create-post.html">
+                    Create Post
+                </a>
+
+
+            </div>
+
+
+
+            <!-- Copyright -->
+
+            <p class="copyright">
+
+                © 2026 BLOGVERSE.
+                All rights reserved.
+
+            </p>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================
+         DASHBOARD JAVASCRIPT
+    ====================================== -->
+
+    <script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

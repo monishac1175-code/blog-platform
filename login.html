@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sign In | BLOGVERSE</title>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- Login CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body class="auth-page">
+
+
+    <!-- =========================================
+         ANIMATED BACKGROUND
+    ========================================== -->
+
+    <div class="auth-background">
+
+        <span class="floating-shape shape-one"></span>
+
+        <span class="floating-shape shape-two"></span>
+
+        <span class="floating-shape shape-three"></span>
+
+        <span class="floating-shape shape-four"></span>
+
+        <span class="floating-shape shape-five"></span>
+
+
+        <div class="auth-glow glow-one"></div>
+
+        <div class="auth-glow glow-two"></div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         AUTH WRAPPER
+    ========================================== -->
+
+    <main class="auth-wrapper">
+
+
+        <!-- =====================================
+             LEFT INTRO SECTION
+        ====================================== -->
+
+        <section class="auth-intro">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="auth-logo"
+            >
+
+                <span class="logo-icon">
+                    B
+                </span>
+
+                <span>
+                    BLOGVERSE
+                </span>
+
+            </a>
+
+
+            <!-- INTRO CONTENT -->
+
+            <div class="intro-content">
+
+                <span class="intro-label">
+                    WELCOME BACK
+                </span>
+
+
+                <h1>
+
+                    Your ideas
+
+                    <span>
+                        are waiting.
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Sign in to continue writing,
+                    sharing and connecting with the
+                    BLOGVERSE community.
+
+                </p>
+
+            </div>
+
+
+            <!-- DECORATION -->
+
+            <div class="intro-decoration">
+
+                <div class="quote-card">
+
+                    <span class="quote-mark">
+                        “
+                    </span>
+
+
+                    <p>
+                        Every story begins with an idea.
+                    </p>
+
+
+                    <small>
+                        — BLOGVERSE
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LOGIN CARD
+        ====================================== -->
+
+        <section class="auth-card">
+
+
+            <!-- CARD HEADER -->
+
+            <div class="card-header">
+
+
+                <!-- Mobile Logo -->
+
+                <div class="mobile-logo">
+
+                    <span class="logo-icon">
+                        B
+                    </span>
+
+                </div>
+
+
+                <span class="card-label">
+                    MEMBER LOGIN
+                </span>
+
+
+                <h2>
+                    Sign In
+                </h2>
+
+
+                <p>
+                    Enter your account details to continue.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================
+                 LOGIN FORM
+            ================================== -->
+
+            <form
+                id="loginForm"
+                class="auth-form"
+            >
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+
+                    <div class="label-row">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+
+                        <a
+                            href="#"
+                            id="forgotPassword"
+                        >
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     REMEMBER ME
+                ================================== -->
+
+                <div class="remember-row">
+
+                    <label class="remember-label">
+
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+
+                        <span class="custom-checkbox"></span>
+
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- =================================
+                     MESSAGE
+                ================================== -->
+
+                <div
+                    id="message"
+                    class="auth-message"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
+
+
+
+                <!-- =================================
+                     LOGIN BUTTON
+                ================================== -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="loginBtn"
+                >
+
+                    <span id="buttonText">
+                        Sign In
+                    </span>
+
+
+                    <span
+                        id="buttonLoader"
+                        class="button-loader"
+                        style="display: none;"
+                    ></span>
+
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+
+            <!-- =================================
+                 DIVIDER
+            ================================== -->
+
+            <div class="divider">
+
+                <span>
+                    OR
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================
+                 REGISTER
+            ================================== -->
+
+            <div class="auth-switch">
+
+                <span>
+                    Don't have an account?
+                </span>
+
+
+                <a href="register.html">
+                    Sign Up
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================
+                 BACK HOME
+            ================================== -->
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+
+                ← Back to BLOGVERSE
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         LOGIN JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>

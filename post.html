@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BLOGVERSE | Post</title>
+
+
+    <!-- Google Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <style>
+
+        /* =================================
+           POST PAGE
+        ================================= */
+
+        .post-page {
+            min-height: 100vh;
+            background: #070b18;
+            color: #ffffff;
+        }
+
+
+        /* =================================
+           NAVIGATION
+        ================================= */
+
+        .post-nav {
+            width: 100%;
+            padding: 18px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(7, 11, 24, 0.88);
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(18px);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+
+        .post-logo {
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+
+        .post-logo span {
+            color: #8b5cf6;
+        }
+
+
+        .back-btn {
+            color: #ffffff;
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            transition: 0.3s ease;
+        }
+
+
+        .back-btn:hover {
+            background: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+
+        /* =================================
+           POST WRAPPER
+        ================================= */
+
+        .post-wrapper {
+            width: 90%;
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 70px 0 90px;
+        }
+
+
+        .post-card-main {
+            padding: 45px;
+
+            border-radius: 24px;
+
+            background:
+                rgba(255, 255, 255, 0.055);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.09);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.25);
+
+            animation:
+                postAppear 0.8s ease forwards;
+        }
+
+
+        .post-label {
+            display: inline-block;
+
+            padding: 7px 13px;
+
+            margin-bottom: 20px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(139, 92, 246, 0.15);
+
+            border:
+                1px solid rgba(139, 92, 246, 0.25);
+
+            color: #c4b5fd;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        #postTitle {
+            font-size: clamp(32px, 5vw, 55px);
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+
+            font-weight: 800;
+
+            word-break: break-word;
+        }
+
+
+        .post-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            padding-bottom: 25px;
+
+            margin-bottom: 30px;
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            color: #94a3b8;
+
+            font-size: 14px;
+        }
+
+
+        .post-info strong {
+            color: #c4b5fd;
+        }
+
+
+        #postContent {
+            color: #cbd5e1;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+
+        /* =================================
+           COMMENTS
+        ================================= */
+
+        .comments-section {
+            margin-top: 35px;
+        }
+
+
+        .comments-title {
+            font-size: 27px;
+            margin-bottom: 22px;
+        }
+
+
+        .comment-form {
+            padding: 25px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            margin-bottom: 30px;
+        }
+
+
+        #commentInput {
+            width: 100%;
+
+            min-height: 120px;
+
+            resize: vertical;
+
+            padding: 15px 17px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.12);
+
+            background:
+                rgba(0, 0, 0, 0.18);
+
+            color: #ffffff;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            transition: 0.3s ease;
+        }
+
+
+        #commentInput:focus {
+            border-color: #8b5cf6;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(139, 92, 246, 0.1);
+        }
+
+
+        #commentInput::placeholder {
+            color: #64748b;
+        }
+
+
+        .comment-submit {
+            margin-top: 12px;
+
+            padding: 12px 22px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #8b5cf6;
+
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+
+        .comment-submit:hover {
+            background: #7c3aed;
+
+            transform: translateY(-2px);
+        }
+
+
+        .comment-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        /* =================================
+           COMMENT MESSAGE
+        ================================= */
+
+        .comment-message {
+            margin-bottom: 15px;
+
+            padding: 11px 14px;
+
+            border-radius: 9px;
+
+            display: none;
+
+            font-size: 13px;
+        }
+
+
+        .comment-message.success {
+            display: block;
+
+            background:
+                rgba(34, 197, 94, 0.1);
+
+            border:
+                1px solid rgba(34, 197, 94, 0.25);
+
+            color: #86efac;
+        }
+
+
+        .comment-message.error {
+            display: block;
+
+            background:
+                rgba(239, 68, 68, 0.1);
+
+            border:
+                1px solid rgba(239, 68, 68, 0.25);
+
+            color: #fca5a5;
+        }
+
+
+        /* =================================
+           COMMENT CARDS
+        ================================= */
+
+        #commentsContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+
+        .comment-card {
+            padding: 22px;
+
+            border-radius: 16px;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            transition: 0.3s ease;
+        }
+
+
+        .comment-card:hover {
+            border-color:
+                rgba(139, 92, 246, 0.3);
+
+            transform: translateY(-2px);
+        }
+
+
+        .comment-header {
+            margin-bottom: 14px;
+        }
+
+
+        .comment-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #8b5cf6;
+
+            color: #ffffff;
+
+            font-weight: 700;
+        }
+
+
+        .comment-user strong {
+            display: block;
+
+            color: #ffffff;
+
+            font-size: 14px;
+        }
+
+
+        .comment-user small {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+
+        .comment-content {
+            color: #cbd5e1;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+
+        .comment-actions {
+            display: flex;
+            gap: 8px;
+
+            margin-top: 15px;
+        }
+
+
+        .comment-btn {
+            padding: 7px 12px;
+
+            border-radius: 8px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            color: #cbd5e1;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .comment-btn:hover {
+            background: #8b5cf6;
+
+            color: #ffffff;
+        }
+
+
+        .comment-btn.delete:hover {
+            background: #ef4444;
+        }
+
+
+        /* =================================
+           EMPTY STATE
+        ================================= */
+
+        .empty-state {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            border-radius: 16px;
+
+            border:
+                1px dashed rgba(255, 255, 255, 0.12);
+
+            color: #94a3b8;
+        }
+
+
+        .empty-state h3 {
+            color: #ffffff;
+
+            margin-bottom: 8px;
+        }
+
+
+        .empty-state p {
+            margin-bottom: 15px;
+        }
+
+
+        .empty-state-icon {
+            font-size: 28px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* =================================
+           LOADING
+        ================================= */
+
+        .loading {
+            text-align: center;
+
+            padding: 40px;
+
+            color: #94a3b8;
+        }
+
+
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+
+            margin: 0 auto 12px;
+
+            border: 3px solid
+                rgba(255, 255, 255, 0.12);
+
+            border-top-color: #8b5cf6;
+
+            border-radius: 50%;
+
+            animation:
+                spin 0.8s linear infinite;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @keyframes postAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 650px) {
+
+            .post-nav {
+                padding: 15px 5%;
+            }
+
+
+            .post-logo {
+                font-size: 18px;
+            }
+
+
+            .back-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+
+            .post-wrapper {
+                width: 92%;
+                padding-top: 35px;
+            }
+
+
+            .post-card-main {
+                padding: 25px 20px;
+            }
+
+
+            #postTitle {
+                font-size: 32px;
+            }
+
+
+            #postContent {
+                font-size: 15px;
+            }
+
+
+            .post-info {
+                flex-wrap: wrap;
+            }
+
+
+            .comment-form {
+                padding: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="post-page">
+
+
+        <!-- =================================
+             NAVIGATION
+        ================================= -->
+
+        <nav class="post-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="post-logo"
+            >
+                BLOG<span>VERSE</span>
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="back-btn"
+            >
+                ← Dashboard
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- =================================
+             MAIN POST
+        ================================= -->
+
+        <main class="post-wrapper">
+
+
+            <article class="post-card-main">
+
+
+                <span class="post-label">
+                    BLOG POST
+                </span>
+
+
+                <h1 id="postTitle">
+                    Loading post...
+                </h1>
+
+
+                <div class="post-info">
+
+
+                    <span>
+                        By
+                        <strong id="postAuthor">
+                            ...
+                        </strong>
+                    </span>
+
+
+                    <span>
+                        •
+                    </span>
+
+
+                    <span id="postDate">
+                        ...
+                    </span>
+
+
+                </div>
+
+
+                <div id="postContent">
+                    Loading content...
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 COMMENTS
+            ================================= -->
+
+            <section class="comments-section">
+
+
+                <h2 class="comments-title">
+                    Comments
+                </h2>
+
+
+
+                <!-- COMMENT FORM -->
+
+                <form
+                    id="commentForm"
+                    class="comment-form"
+                >
+
+
+                    <div
+                        id="commentMessage"
+                        class="comment-message"
+                    ></div>
+
+
+                    <textarea
+                        id="commentInput"
+                        placeholder="Share your thoughts..."
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="comment-submit"
+                        id="commentSubmit"
+                    >
+                        Add Comment
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- COMMENTS -->
+
+                <div id="commentsContainer">
+
+
+                    <div class="loading">
+
+
+                        <div
+                            class="loading-spinner"
+                        ></div>
+
+
+                        <p>
+                            Loading comments...
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         POST JAVASCRIPT
+    ================================= -->
+
+    <script src="js/post.js"></script>
+
+
+</body>
+
+</html>
